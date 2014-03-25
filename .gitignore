@@ -3,3 +3,4 @@
 vendor
 *.swp
 *.swo
+composer.phar
