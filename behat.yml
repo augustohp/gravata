@@ -1,0 +1,10 @@
+default:
+    paths:
+        features: %behat.paths.base%/tests/functional
+        bootstrap: %behat.paths.base%/src/Gravata/Test/Context
+    context:
+        class: Gravata\Test\Context\FeatureContext
+        parameters:
+            url: http://gravata.dev
+    formatter:
+        name: progress
