@@ -1,0 +1,20 @@
+<VirtualHost *:<%= port %>>
+    ServerName <%= domain %>
+    ServerAdmin admin@<%= domain %>
+    DocumentRoot <%= docroot %>
+    ErrorLog ${APACHE_LOG_DIR}/<%= domain %>.error_log
+    CustomLog ${APACHE_LOG_DIR}/<%= domain %>.access_log common
+    <Directory <%= docroot %>>
+        Allow from all
+        Options +Includes +Indexes +FollowSymLinks
+        AllowOverride all
+    </Directory>
+     ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+    <Directory "/usr/lib/cgi-bin">
+        AllowOverride None
+        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+
