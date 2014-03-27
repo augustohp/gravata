@@ -8,4 +8,8 @@ class apache {
         ensure => running,
         require => Package["apache2"]
     }
+
+    file { '/etc/hosts':
+        source => '/vagrant/vagrant/modules/apache/files/hosts'
+    }
 }
