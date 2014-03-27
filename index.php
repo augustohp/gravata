@@ -11,9 +11,12 @@ $app->get('/', function() use ($app) {
    if (isset($_GET['email'])) {
         $email = filter_input(INPUT_GET, 'email');
         $calculator = new Gravata\Service\Gravatar\EmailHashCalculator;
+        $downloader = new Gravata\Downloader;
         $emailHash = $calculator->calculate($email);
+        $gravatarUrl = 'http://www.gravatar.com/avatar/'.$emailHash.'?size=640';
+        $downloader->fromUrlToFile($gravatarUrl, '/tmp/'.$email.'.jpeg');
 
-        return $app->redirect('http://www.gravatar.com/avatar/'.$emailHash.'?d=404&size=640', 307);
+        return $app->redirect($gravatarUrl);
    }
 
    $app->render('search.php');

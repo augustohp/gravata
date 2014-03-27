@@ -75,5 +75,15 @@ class FeatureContext extends BehatContext
             throw new \Exception('Not on avatar URL');
         }
     }
+    /**
+     * @Then /^I should have a file named "([^"]*)" in "([^"]*)" dir$/
+     */
+    public function iShouldHaveAFileNamedInDir($filename, $dirname)
+    {
+        $filePath = rtrim($dirname, '/') . '/' . $filename;
+        if (false === file_exists($filePath)) {
+            throw new \Exception(sprintf("File %s does not exist in dir %s", $filename, $dirname));
+        }
+    }
 
 }
