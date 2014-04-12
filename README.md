@@ -24,7 +24,7 @@ Porque seu [gravatar][] precisa de uma gravata!
    na sua máquina ([precisa de ajuda?][2]).
 
 Os comandos acima lhe darão uma [VM][] rodando [Ubuntu][] 12.04, somente
-processadores 64bit são suportador. Se você precisar rodar este repositório
+processadores 64bit são suportados. Se você precisar rodar este repositório
 em uma máquina 32 bits, entre em contato [criando uma issue][issue].
 
 ## Rodando os testes
